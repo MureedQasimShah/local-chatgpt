@@ -29,15 +29,7 @@ No API key. No monthly bill. Works offline. Your data never leaves your machine.
 
 ## 1. Requirements
 
-| | Minimum | Recommended |
-|---|---|---|
-| RAM | 8 GB | 16 GB+ |
-| Disk | 10 GB free | 30 GB+ (models are 1-5 GB each) |
-| CPU | Any 64-bit | Modern 4+ cores |
-| GPU | Not required | NVIDIA GPU makes it much faster |
-| OS | Linux, macOS, or Windows | Linux |
-
-**Rule of thumb:** 8 GB RAM runs 1B-4B models. 16 GB runs 7B-8B models. Bigger models need a GPU.
+A laptop with **8 GB of RAM**.
 
 ---
 
@@ -127,10 +119,46 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-### macOS and Windows
+### macOS
 
-Install **Docker Desktop**: https://www.docker.com/products/docker-desktop/
-On Windows, enable WSL 2 when the installer asks. Then open Docker Desktop and wait until it says *Engine running*.
+Install **Docker Desktop**. With Homebrew:
+
+```bash
+brew install --cask docker
+open -a Docker
+```
+
+Without Homebrew, download the disk image for your Mac and drag **Docker** into **Applications**:
+
+- Apple silicon and Intel: https://docs.docker.com/desktop/setup/install/mac-install/
+
+Open **Docker** from Applications and accept the agreement. Wait until the menu bar whale says *Engine running*. The first launch can take a minute. Then open a new terminal so `docker` is on your `PATH`.
+
+### Windows
+
+Install **WSL 2** first, then **Docker Desktop**. Docker Desktop on Windows runs Linux containers through WSL 2.
+
+Open **PowerShell as Administrator** and run:
+
+```powershell
+wsl --install
+```
+
+Restart the PC if Windows asks you to.
+
+Install Docker Desktop. In a normal PowerShell window:
+
+```powershell
+winget install -e --id Docker.DockerDesktop
+```
+
+Or download the installer and run it: https://docs.docker.com/desktop/setup/install/windows-install/
+
+When the installer asks, leave **Use WSL 2** selected.
+
+Start **Docker Desktop** from the Start menu, accept the agreement, and wait until it says *Engine running*.
+
+Open a new terminal after that. Commands later in this guide break lines with `\`, which works in bash and in the Ubuntu app WSL installed. PowerShell does not treat `\` as a line break, so paste those commands as one line with the backslashes removed.
 
 ### After installing (Linux): run Docker without `sudo`
 
