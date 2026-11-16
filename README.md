@@ -1,5 +1,7 @@
 # Run Your Own ChatGPT Locally with One Docker Command
 
+**Step by Step Guide on Youtube:** https://youtu.be/SY6Yp9FUEA8
+
 Run a private, ChatGPT-style AI on your own machine with **Open WebUI + Ollama**.
 No API key. No monthly bill. Works offline. Your data never leaves your machine.
 
